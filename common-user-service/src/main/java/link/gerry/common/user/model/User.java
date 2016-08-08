@@ -14,7 +14,7 @@ public class User extends BaseModel {
 	 */
 	private static final long serialVersionUID = 3342383581892963989L;
 
-	private long id;
+	private Long id;
 
 	private String name;
 	
@@ -24,12 +24,12 @@ public class User extends BaseModel {
 
 	private String password;
 
-	private int gender;
+	private Integer gender;
 
-	private int status;
+	private Integer status;
 
-	private long createTime;
+	private Long createTime;
 
-	private long updateTime;
+	private Long updateTime;
 
 }

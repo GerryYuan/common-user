@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 		t.setUpdateTime(time);
 		t.setId(IdWorker.getFlowIdWorkerInstance().nextId());
 		userDAO.addUser(t);
-		return (int) t.getId();
+		return t.getId().intValue();
 	}
 
 	@Override
@@ -50,6 +50,26 @@ public class UserServiceImpl implements UserService {
 			return ViewModelHelper.NOViewModelResult("手机号已存在");
 		}
 		return save(user) > 0 ? ViewModelHelper.OKViewModelResult() : ViewModelHelper.NOViewModelResult("注册用户失败");
+	}
+
+	@Override
+	public Result<User> login(String phone, String password) throws Exception {
+		User user = userDAO.getUserByPhone(phone);
+		if (EmptyUtils.isEmpty(user)) {
+			return ViewModelHelper.NOViewModelResult("不存在手机号[" + phone + "]对应的用户");
+		}
+		if (!user.getPassword().equals(password)) {
+			return ViewModelHelper.NOViewModelResult("手机号[" + phone + "]输入的密码错误");
+		}
+		return ViewModelHelper.OKViewModelResult(user);
+	}
+
+	@Override
+	public boolean modifyNickName(long id, String nickName) throws Exception {
+		User user = new User();
+		user.setId(id);
+		user.setNickName(nickName);
+		return userDAO.updateUser(user);
 	}
 
 }
