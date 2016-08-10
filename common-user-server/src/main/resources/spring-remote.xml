@@ -19,6 +19,8 @@
 	
 	<bean id="userService" class="link.gerry.common.user.service.impl.UserServiceImpl"/>
 	
+	<bean id="operateToken" class="com.gerry.common.framework.token.OperateToken"/>
+	   
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
          <property name="mappings">
             <props>

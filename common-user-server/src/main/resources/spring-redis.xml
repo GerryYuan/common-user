@@ -25,15 +25,15 @@
         <constructor-arg index="0" ref="jedisPoolConfig" />  
     </bean>
     
-    <!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">  
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">  
         <property name="connectionFactory" ref="jedisConnectionFactory" />  
-    </bean> -->
+    </bean>
     
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">  
+   <!-- <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">  
         <property name="connectionFactory" ref="jedisConnectionFactory" />  
-    </bean> 
+    </bean> --> 
     
-    <bean class="com.gerry.common.framework.redis.RedisManager">
+    <bean class="com.gerry.common.framework.redis.StringRedisKVCacheOperate">
     	<property name="redisTemplate" ref="redisTemplate"/>
     </bean>
     
