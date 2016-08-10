@@ -19,8 +19,9 @@
 	
 	<bean id="userService" class="link.gerry.common.user.service.impl.UserServiceImpl"/>
 	
-	<bean id="operateToken" class="com.gerry.common.framework.token.OperateToken"/>
-	   
+	<bean id="operateToken" class="com.gerry.common.framework.token.OperateToken">
+		<property name="cache" ref="stringRedisKVCacheOperate"/>
+	</bean>	   
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
          <property name="mappings">
             <props>
