@@ -13,6 +13,7 @@
 	<properties>
 		<gerry-common-version-control.version>1.0.0-SNAPSHOT</gerry-common-version-control.version>
 		<common-user-service.version>0.0.1-SNAPSHOT</common-user-service.version>
+	    <common-security.version>0.0.1-SNAPSHOT</common-security.version>
 	</properties>
 	<dependencies>
 
@@ -28,6 +29,11 @@
 			<version>${common-user-service.version}</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>common-security</groupId>
+			<artifactId>common-security</artifactId>
+			<version>${common-security.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
